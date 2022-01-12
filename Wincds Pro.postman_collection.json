@@ -1,0 +1,983 @@
+{
+	"info": {
+		"_postman_id": "67ead0b7-3c06-4369-b325-6558d57b9b2c",
+		"name": "Wincds Pro",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Sales",
+			"item": [
+				{
+					"name": "Get Sales List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{wincdsUri}}/api/{{apiver}}/l/{{loc}}/sale",
+							"host": [
+								"{{wincdsUri}}"
+							],
+							"path": [
+								"api",
+								"{{apiver}}",
+								"l",
+								"{{loc}}",
+								"sale"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Sale",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{wincdsUri}}/api/{{apiver}}/l/{{loc}}/sale/10348",
+							"host": [
+								"{{wincdsUri}}"
+							],
+							"path": [
+								"api",
+								"{{apiver}}",
+								"l",
+								"{{loc}}",
+								"sale",
+								"10348"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Sale",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"mailIndex\":302,\r\n    \"addTax\":true,\r\n    \"addDel\":34.00,\r\n    \"addLab\":44.6,\r\n    \"items\":[\r\n        { \"style\":\"6000-066\", \"loc\":1, \"quantity\":1, \"status\":\"ST\", \"price\":698.76 },\r\n        { \"style\":\"6000-085\", \"loc\":1, \"quantity\":2, \"status\":\"ST\", \"price\":799.95 }\r\n    ]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{wincdsUri}}/api/{{apiver}}/l/{{loc}}/sale",
+							"host": [
+								"{{wincdsUri}}"
+							],
+							"path": [
+								"api",
+								"{{apiver}}",
+								"l",
+								"{{loc}}",
+								"sale"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Items",
+			"item": [
+				{
+					"name": "Get Item List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{wincdsUri}}/api/{{apiver}}/l/{{loc}}/inventory",
+							"host": [
+								"{{wincdsUri}}"
+							],
+							"path": [
+								"api",
+								"{{apiver}}",
+								"l",
+								"{{loc}}",
+								"inventory"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Item",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{wincdsUri}}/api/{{apiver}}/l/{{loc}}/inventory/6000-066",
+							"host": [
+								"{{wincdsUri}}"
+							],
+							"path": [
+								"api",
+								"{{apiver}}",
+								"l",
+								"{{loc}}",
+								"inventory",
+								"6000-066"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Item Detail",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{wincdsUri}}/api/{{apiver}}/l/{{loc}}/inventory/detail/6000-066",
+							"host": [
+								"{{wincdsUri}}"
+							],
+							"path": [
+								"api",
+								"{{apiver}}",
+								"l",
+								"{{loc}}",
+								"inventory",
+								"detail",
+								"6000-066"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "POs",
+			"item": [
+				{
+					"name": "Get Po List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{wincdsUri}}/api/{{apiver}}/l/{{loc}}/po",
+							"host": [
+								"{{wincdsUri}}"
+							],
+							"path": [
+								"api",
+								"{{apiver}}",
+								"l",
+								"{{loc}}",
+								"po"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Po",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{wincdsUri}}/api/{{apiver}}/l/{{loc}}/po/2216",
+							"host": [
+								"{{wincdsUri}}"
+							],
+							"path": [
+								"api",
+								"{{apiver}}",
+								"l",
+								"{{loc}}",
+								"po",
+								"2216"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Po",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"mailIndex\":302,\r\n    \"addTax\":true,\r\n    \"addDel\":34.00,\r\n    \"addLab\":44.6,\r\n    \"items\":[\r\n        { \"style\":\"6000-066\", \"loc\":1, \"quantity\":1, \"status\":\"ST\", \"price\":698.76 },\r\n        { \"style\":\"6000-085\", \"loc\":1, \"quantity\":2, \"status\":\"ST\", \"price\":799.95 }\r\n    ]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{wincdsUri}}/api/{{apiver}}/l/{{loc}}/po/2216",
+							"host": [
+								"{{wincdsUri}}"
+							],
+							"path": [
+								"api",
+								"{{apiver}}",
+								"l",
+								"{{loc}}",
+								"po",
+								"2216"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Search",
+			"item": [
+				{
+					"name": "Sales",
+					"item": [
+						{
+							"name": "Sale By Date",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{wincdsUri}}/api/{{apiver}}/l/{{loc}}/find/sale/date/2020-02-02",
+									"host": [
+										"{{wincdsUri}}"
+									],
+									"path": [
+										"api",
+										"{{apiver}}",
+										"l",
+										"{{loc}}",
+										"find",
+										"sale",
+										"date",
+										"2020-02-02"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Sale By Phone",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{wincdsUri}}/api/{{apiver}}/l/{{loc}}/find/sale/phone/3334445555",
+									"host": [
+										"{{wincdsUri}}"
+									],
+									"path": [
+										"api",
+										"{{apiver}}",
+										"l",
+										"{{loc}}",
+										"find",
+										"sale",
+										"phone",
+										"3334445555"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Sale By Name",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{wincdsUri}}/api/{{apiver}}/l/{{loc}}/find/sale/name/CARTER",
+									"host": [
+										"{{wincdsUri}}"
+									],
+									"path": [
+										"api",
+										"{{apiver}}",
+										"l",
+										"{{loc}}",
+										"find",
+										"sale",
+										"name",
+										"CARTER"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Sale By SaleNo",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{wincdsUri}}/api/{{apiver}}/l/{{loc}}/find/sale/saleno/10348",
+									"host": [
+										"{{wincdsUri}}"
+									],
+									"path": [
+										"api",
+										"{{apiver}}",
+										"l",
+										"{{loc}}",
+										"find",
+										"sale",
+										"saleno",
+										"10348"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Customer",
+					"item": [
+						{
+							"name": "Customer By Name",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{wincdsUri}}/api/{{apiver}}/l/{{loc}}/find/customer/name/CARTER",
+									"host": [
+										"{{wincdsUri}}"
+									],
+									"path": [
+										"api",
+										"{{apiver}}",
+										"l",
+										"{{loc}}",
+										"find",
+										"customer",
+										"name",
+										"CARTER"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Customer By Phone",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{wincdsUri}}/api/{{apiver}}/l/{{loc}}/find/customer/phone/3334445555",
+									"host": [
+										"{{wincdsUri}}"
+									],
+									"path": [
+										"api",
+										"{{apiver}}",
+										"l",
+										"{{loc}}",
+										"find",
+										"customer",
+										"phone",
+										"3334445555"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Items",
+					"item": [
+						{
+							"name": "Item By Style",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{wincdsUri}}/api/{{apiver}}/l/{{loc}}/find/item/style/6000-066",
+									"host": [
+										"{{wincdsUri}}"
+									],
+									"path": [
+										"api",
+										"{{apiver}}",
+										"l",
+										"{{loc}}",
+										"find",
+										"item",
+										"style",
+										"6000-066"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Item By Desc",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{wincdsUri}}/api/{{apiver}}/l/{{loc}}/find/item/desc/DESK",
+									"host": [
+										"{{wincdsUri}}"
+									],
+									"path": [
+										"api",
+										"{{apiver}}",
+										"l",
+										"{{loc}}",
+										"find",
+										"item",
+										"desc",
+										"DESK"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Item By Vendor",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{wincdsUri}}/api/{{apiver}}/l/{{loc}}/find/item/vendor/ASHLEY",
+									"host": [
+										"{{wincdsUri}}"
+									],
+									"path": [
+										"api",
+										"{{apiver}}",
+										"l",
+										"{{loc}}",
+										"find",
+										"item",
+										"vendor",
+										"ASHLEY"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "POs",
+					"item": [
+						{
+							"name": "PO By PoNo",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{wincdsUri}}/api/{{apiver}}/l/{{loc}}/find/po/pono2216",
+									"host": [
+										"{{wincdsUri}}"
+									],
+									"path": [
+										"api",
+										"{{apiver}}",
+										"l",
+										"{{loc}}",
+										"find",
+										"po",
+										"pono2216"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PO By Style",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{wincdsUri}}/api/{{apiver}}/l/{{loc}}/find/po/style/6000-066",
+									"host": [
+										"{{wincdsUri}}"
+									],
+									"path": [
+										"api",
+										"{{apiver}}",
+										"l",
+										"{{loc}}",
+										"find",
+										"po",
+										"style",
+										"6000-066"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PO By Vendor",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{wincdsUri}}/api/{{apiver}}/l/{{loc}}/find/po/vendor/VIRG",
+									"host": [
+										"{{wincdsUri}}"
+									],
+									"path": [
+										"api",
+										"{{apiver}}",
+										"l",
+										"{{loc}}",
+										"find",
+										"po",
+										"vendor",
+										"VIRG"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PO By Desc",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{wincdsUri}}/api/{{apiver}}/l/{{loc}}/find/po/desc/DESK",
+									"host": [
+										"{{wincdsUri}}"
+									],
+									"path": [
+										"api",
+										"{{apiver}}",
+										"l",
+										"{{loc}}",
+										"find",
+										"po",
+										"desc",
+										"DESK"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PO By Status",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{wincdsUri}}/api/{{apiver}}/l/{{loc}}/find/po/status/X",
+									"host": [
+										"{{wincdsUri}}"
+									],
+									"path": [
+										"api",
+										"{{apiver}}",
+										"l",
+										"{{loc}}",
+										"find",
+										"po",
+										"status",
+										"X"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PO By Date",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{wincdsUri}}/api/{{apiver}}/l/{{loc}}/find/po/date/2020-02-02",
+									"host": [
+										"{{wincdsUri}}"
+									],
+									"path": [
+										"api",
+										"{{apiver}}",
+										"l",
+										"{{loc}}",
+										"find",
+										"po",
+										"date",
+										"2020-02-02"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Physical Inventory",
+			"item": [
+				{
+					"name": "Physical Inventory",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{wincdsUri}}/api/{{apiver}}/physicalinv",
+							"host": [
+								"{{wincdsUri}}"
+							],
+							"path": [
+								"api",
+								"{{apiver}}",
+								"physicalinv"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Receive Po",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{wincdsUri}}/api/{{apiver}}/recpo",
+							"host": [
+								"{{wincdsUri}}"
+							],
+							"path": [
+								"api",
+								"{{apiver}}",
+								"recpo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pull Order",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{wincdsUri}}/api/{{apiver}}/pullorder",
+							"host": [
+								"{{wincdsUri}}"
+							],
+							"path": [
+								"api",
+								"{{apiver}}",
+								"pullorder"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Stock Locations",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{wincdsUri}}/api/{{apiver}}/stocklocations",
+							"host": [
+								"{{wincdsUri}}"
+							],
+							"path": [
+								"api",
+								"{{apiver}}",
+								"stocklocations"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Misc",
+			"item": [
+				{
+					"name": "FX File",
+					"request": {
+						"method": "HEAD",
+						"header": [],
+						"url": {
+							"raw": "{{wincdsUri}}/api/{{apiver}}/fx/Store2Logo.jpg",
+							"host": [
+								"{{wincdsUri}}"
+							],
+							"path": [
+								"api",
+								"{{apiver}}",
+								"fx",
+								"Store2Logo.jpg"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FX File",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{wincdsUri}}/api/{{apiver}}/fx/Store2Logo.jpg",
+							"host": [
+								"{{wincdsUri}}"
+							],
+							"path": [
+								"api",
+								"{{apiver}}",
+								"fx",
+								"Store2Logo.jpg"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Store Logo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{wincdsUri}}/api/{{apiver}}/fx/logo/1",
+							"host": [
+								"{{wincdsUri}}"
+							],
+							"path": [
+								"api",
+								"{{apiver}}",
+								"fx",
+								"logo",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Help",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{wincdsUri}}/api/v1/help",
+							"host": [
+								"{{wincdsUri}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"help"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Verify",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{wincdsUri}}/api/verify",
+							"host": [
+								"{{wincdsUri}}"
+							],
+							"path": [
+								"api",
+								"verify"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Connection Test",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{wincdsUri}}/api/v1/connection-test",
+							"host": [
+								"{{wincdsUri}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"connection-test"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Authorize",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = JSON.parse(responseBody);\r",
+							"pm.collectionVariables.set(\"token\", data.token);\r",
+							"console.log(\"token: \" + data.token);\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "access_key={{accessKey}}&username={{username}}&password={{password}}&store={{loc}}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{wincdsUri}}/api/authorize",
+					"host": [
+						"{{wincdsUri}}"
+					],
+					"path": [
+						"api",
+						"authorize"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Settings",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{wincdsUri}}/api/v1/l/1/settings",
+					"host": [
+						"{{wincdsUri}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"l",
+						"1",
+						"settings"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "wincdsUri",
+			"value": "http://localhost:8082"
+		},
+		{
+			"key": "accessKey",
+			"value": "12345"
+		},
+		{
+			"key": "username",
+			"value": "John"
+		},
+		{
+			"key": "password",
+			"value": "o"
+		},
+		{
+			"key": "loc",
+			"value": "1"
+		},
+		{
+			"key": "token",
+			"value": "eyJ0eXAiOiJqd3QiLCJhbGciOiJDRFMifQ.eyAiaXNzIjoiV2luQ0RTIiwiaWF0IjoiMy81LzIwMjEgMjoyMDoyNSBQTSIsImV4cCI6IjIwMjEwMzA2IiwiYWRtaW4iOmZhbHNlLCJncm91cHMiOlsiTyIsIkUiXSwidXNyIjoiMDEiLCJhdWQiOiJKb2huIiwic3RvcmUiOiIxIn0.O5OKFGKLUZMG3EAVCTVXP252XNBIKKLF"
+		},
+		{
+			"key": "apiver",
+			"value": "v1"
+		}
+	]
+}

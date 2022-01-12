@@ -1,0 +1,190 @@
+buildscript {
+    ext {
+        retrofit_version = "2.9.0"
+    }
+    repositories {
+        google(); mavenCentral(); gradlePluginPortal()
+    }
+}
+
+plugins {
+    id "com.android.application"
+    id "org.jetbrains.kotlin.android"
+//    id "com.github.ben-manes.versions" version "0.42.0" // Report of dependency upgrades:  ./gradlew dependencyUpdates
+}
+
+def versionPropsFile = file("${rootDir}\\version.properties")
+def versionProps = new Properties()
+versionProps.load(new FileInputStream(versionPropsFile))
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
+
+//    lintOptions.abortOnError false
+
+    dependenciesInfo {
+        includeInApk true
+        includeInBundle true
+    }
+
+    defaultConfig {
+        applicationId "com.wincdspro.app"
+        minSdkVersion 24                    // Min version is set by zebra xing lib
+        targetSdkVersion 32
+        versionCode versionProps["VERSION_CODE"] as Integer
+        versionName "${versionProps["VERSION_MAJOR"]}.${versionProps["VERSION_MINOR"]}.${versionProps["VERSION_PATCH"]}"
+        multiDexEnabled true
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    signingConfigs {
+        debug {
+            storeFile file(RELEASE_STORE_FILE)
+            storePassword RELEASE_STORE_PASSWORD
+            keyAlias RELEASE_KEY_ALIAS
+            keyPassword RELEASE_KEY_PASSWORD
+            v1SigningEnabled true
+            v2SigningEnabled true
+        }
+        release {
+            storeFile file(RELEASE_STORE_FILE)
+            storePassword RELEASE_STORE_PASSWORD
+            keyAlias RELEASE_KEY_ALIAS
+            keyPassword RELEASE_KEY_PASSWORD
+            v1SigningEnabled true
+            v2SigningEnabled true
+        }
+    }
+
+    buildTypes {
+        debug {
+            proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
+            signingConfig signingConfigs.debug
+        }
+        release {
+            proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
+            signingConfig signingConfigs.release
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility "1.8"
+        targetCompatibility "1.8"
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+//        useIR = true
+    }
+}
+
+repositories {
+    google(); mavenCentral();
+    maven { url "https://jitpack.io" }
+    flatDir { dirs "libs" }
+}
+
+configurations {
+    ktlint
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation "androidx.core:core-ktx:1.8.0"
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4'
+    implementation "androidx.appcompat:appcompat:1.5.0"
+
+    implementation "com.google.android.material:material:1.6.1"
+    implementation "androidx.constraintlayout:constraintlayout:2.1.4"
+    implementation "androidx.navigation:navigation-fragment-ktx:2.5.1"
+    implementation "androidx.navigation:navigation-ui-ktx:2.5.1"
+
+    // Components
+    implementation "com.journeyapps:zxing-android-embedded:4.3.0"
+//    implementation "com.baoyz.swipemenulistview:library:1.3.0"
+    implementation name: "baoyz-library", ext: "aar"
+    implementation "com.github.MikeOrtiz:TouchImageView:3.0.1"
+    implementation "com.apptastic:rssreader:1.0.4"
+
+    // Connectivity
+    implementation "com.squareup.retrofit2:retrofit:${retrofit_version}"
+    implementation "com.squareup.retrofit2:converter-jackson:${retrofit_version}"
+    implementation "com.squareup.retrofit2:converter-scalars:${retrofit_version}"
+
+    // Jackson
+    implementation "androidx.preference:preference-ktx:1.2.0"
+    implementation "com.fasterxml.jackson.module:jackson-module-kotlin:2.13.4"
+    implementation "org.jetbrains.kotlin:kotlin-reflect:${kotlin_version}"
+
+    // Tools
+    implementation "com.auth0.android:jwtdecode:2.0.1"
+    implementation "androidx.multidex:multidex:2.0.1"
+    implementation "org.apache.commons:commons-csv:1.8"
+
+    // Testing
+    testImplementation "junit:junit:4.13.2"
+
+    androidTestImplementation "androidx.test.ext:junit:1.1.3"
+    androidTestImplementation "androidx.test.espresso:espresso-core:3.4.0"
+    androidTestImplementation "com.android.support.test.espresso:espresso-intents:3.3.0"
+
+    // Linting
+    ktlint "com.pinterest:ktlint:0.47.0"
+}
+
+task ktlint(type: JavaExec, group: "verification") {
+    description = "Check Kotlin code style."
+    classpath = configurations.ktlint
+    main = "com.pinterest.ktlint.Main"
+    args "src/**/*.kt"
+    // to generate report in checkstyle format prepend following args:
+    // "--reporter=plain", "--reporter=checkstyle,output=${buildDir}/ktlint.xml"
+    // to add a baseline to check against prepend following args:
+    // "--baseline=ktlint-baseline.xml"
+    // see https://github.com/pinterest/ktlint#usage for more
+}
+check.dependsOn ktlint
+
+task ktlintFormat(type: JavaExec, group: "formatting") {
+    description = "Fix Kotlin code style deviations."
+    classpath = configurations.ktlint
+    main = "com.pinterest.ktlint.Main"
+    args "-F", "src/**/*.kt"
+}
+
+task incrementVersionCode {
+    doLast {
+        def c = (versionProps["VERSION_CODE"] as Integer) + 1
+        def m = versionProps["VERSION_MAJOR"] as Integer
+        def n = versionProps["VERSION_MINOR"] as Integer
+        def p = versionProps["VERSION_PATCH"] as Integer
+        def contents = "VERSION_CODE=$c\nVERSION_MAJOR=$m\nVERSION_MINOR=$n\nVERSION_PATCH=$p\n"
+        versionPropsFile.write(contents)
+        versionProps.load(new FileInputStream(versionPropsFile))
+        android.defaultConfig.versionCode = c
+        println("CODE: " + android.defaultConfig.versionCode + " (" + c + ") - " + versionProps["VERSION_CODE"])
+    }
+}
+
+task incrementVersionPatch {
+    doLast {
+        def c = versionProps["VERSION_CODE"] as Integer
+        def m = versionProps["VERSION_MAJOR"] as Integer
+        def n = versionProps["VERSION_MINOR"] as Integer
+        def p = (versionProps["VERSION_PATCH"] as Integer) + 1
+        def contents = "VERSION_CODE=$c\nVERSION_MAJOR=$m\nVERSION_MINOR=$n\nVERSION_PATCH=$p\n"
+        versionPropsFile.write(contents)
+        versionProps.load(new FileInputStream(versionPropsFile))
+        android.defaultConfig.versionName "${versionProps["VERSION_MAJOR"]}.${versionProps["VERSION_MINOR"]}.${versionProps["VERSION_PATCH"]}"
+        println("VER: " + android.defaultConfig.versionName)
+    }
+}
+
+task release(type: Exec) {
+    dependsOn ":app:incrementVersionCode"
+    dependsOn ":app:incrementVersionPatch"
+    commandLine "git", "commit", "-am", "\"Release\""
+    finalizedBy ":app:assembleRelease"
+}

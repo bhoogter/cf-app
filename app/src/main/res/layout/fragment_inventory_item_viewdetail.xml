@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_inventory_item_viewdetail"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.inventory.ItemLookupFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/inv_viewdetail_close"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Close" />
+
+        <LinearLayout
+            android:id="@+id/inv_viewitem_lay_style"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/inv_viewitem_lbl_style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Style"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/inv_viewitem_txt_style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:text=""
+                android:textSize="24sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/inv_viewitem_lay_vendor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/inv_viewitem_lbl_vendor"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="Vendor" />
+
+            <TextView
+                android:id="@+id/inv_viewitem_txt_vendorno"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text="000" />
+
+            <TextView
+                android:id="@+id/inv_viewitem_txt_vendor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/inv_viewitem_lay_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/inv_viewitem_lbl_desc"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="Description" />
+
+            <TextView
+                android:id="@+id/inv_viewitem_txt_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:text="" />
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/inv_viewdetail_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

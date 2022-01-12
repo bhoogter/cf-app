@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/main_start">
+
+    <fragment
+        android:id="@+id/main_start"
+        android:name="com.wincdspro.app.fragment.main.MainMenuStartFragment"
+        tools:layout="@layout/fragment_order_lookup">
+
+        <action
+            android:id="@+id/action_main_start_to_order"
+            app:destination="@id/main_order" />
+        <action
+            android:id="@+id/action_main_start_to_inventory"
+            app:destination="@id/main_inventory" />
+        <action
+            android:id="@+id/action_main_start_to_tracking"
+            app:destination="@id/main_tracking" />
+        <action
+            android:id="@+id/action_main_start_to_about"
+            app:destination="@id/main_about" />
+    </fragment>
+    <fragment
+        android:id="@+id/main_order"
+        android:name="com.wincdspro.app.fragment.main.MainMenuOrderFragment"
+        tools:layout="@layout/fragment_main_order">
+
+        <action
+            android:id="@+id/action_order_to_start"
+            app:destination="@id/main_start" />
+    </fragment>
+    <fragment
+        android:id="@+id/main_inventory"
+        android:name="com.wincdspro.app.fragment.main.MainMenuInventoryFragment"
+        tools:layout="@layout/fragment_main_inventory">
+
+        <action
+            android:id="@+id/action_inventory_to_start"
+            app:destination="@id/main_start" />
+    </fragment>
+    <fragment
+        android:id="@+id/main_tracking"
+        android:name="com.wincdspro.app.fragment.main.MainMenuTrackingFragment"
+        tools:layout="@layout/fragment_main_tracking">
+
+        <action
+            android:id="@+id/action_tracking_to_start"
+            app:destination="@id/main_start" />
+    </fragment>
+    <fragment
+        android:id="@+id/main_about"
+        android:name="com.wincdspro.app.fragment.main.MainMenuAboutFragment"
+        tools:layout="@layout/fragment_main_about">
+
+        <action
+            android:id="@+id/action_about_to_start"
+            app:destination="@id/main_start" />
+    </fragment>
+    <fragment
+        android:id="@+id/main_perms"
+        android:name="com.wincdspro.app.fragment.main.PermissionRequestFragment"
+        tools:layout="@layout/fragment_main_permission">
+
+        <action
+            android:id="@+id/action_perm_to_start"
+            app:destination="@id/main_start" />
+    </fragment>
+</navigation>
